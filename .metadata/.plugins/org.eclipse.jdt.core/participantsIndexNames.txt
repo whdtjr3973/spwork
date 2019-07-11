@@ -3,6 +3,8 @@ C:\bizwork\spwork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\23617761
 \SpMVC_inputForm_02\src\main\java
 C:\bizwork\spwork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1536514053.index
 \SpMVC_inputform_01\src\main\java
+C:\bizwork\spwork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1021433794.index
+\SpMVC_CRUD_01\src\main\java
 C:\bizwork\spwork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\319948715.index
 \Sp_001\src\main\java
 C:\bizwork\spwork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2738953239.index
