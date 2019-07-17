@@ -1,0 +1,53 @@
+@charset "UTF-8";
+
+table{
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ccc;
+
+}
+tr{
+    border: 1px solid #ddd;
+}
+tr:nth-child(even){
+    background-color: #ccc;
+}
+tr:nth-child(odd){
+    background-color: #fff;
+}
+tr:hover{
+    background-color: #ddd;
+    cursor: pointer;
+}
+td,th{
+    padding: 8px;
+    vertical-align: top;
+}
+td:first-child, th:first-child{
+    padding-left: 16px;
+}
+
+div.btn-div{
+	display:flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+button.btn-input{
+	background-color: green;
+	border: 2px solid green;
+	color:white;
+	display:inline-block;
+	padding: 10px 15px;
+	font-size : 16px;
+	margin: 4px 2px;
+	text-align: center;
+	border-radius: 5px;
+	transition-duration: 0.5s;
+	
+}
+button.btn-input:hover{
+	background-color : red;
+	border: 2px solid blue;
+	
+}
