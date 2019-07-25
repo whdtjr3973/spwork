@@ -19,9 +19,9 @@ public class IolistVO {
 	private Long io_seq;//	NUMBER
 	private String io_date;//	VARCHAR2(10)
 	private String io_pcode;//	nVARCHAR2(50)
-	private String i8o_ccode;//	nVARCHAR2(50)
+	private String io_ccode;//	nVARCHAR2(50)
 	private String io_ceo;//	nVARCHAR2(50)
-	private String io_inou8t;//	VARCHAR2(1)
+	private String io_inout;//	VARCHAR2(1)
 	private int io_amt;//	NUMBER
 	private int io_price;//	NUMBER
 	private int io_total;//	NUMBER
