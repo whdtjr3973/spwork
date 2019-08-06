@@ -28,7 +28,12 @@ public class MemberContorller {
 		
 	}
 	@RequestMapping(value="/login", method=RequestMethod.GET)
-	public String Login(Model model) {
+	public String login(
+			@RequestParam(value="LOGIN_MSG",required = false, defaultValue="")
+			String LOGIN_MSG,
+			Model model) {
+		model.addAttribute("LOGIN_MSG", LOGIN_MSG);
+		model.addAttribute("BODY", "LOGIN");
 		return "body/login";
 	}
 	
@@ -45,7 +50,9 @@ public class MemberContorller {
 		return "redirect:/";
 	}
 	@RequestMapping(value="/login", method=RequestMethod.POST)
-	public String login(@ModelAttribute MemberVO memberVO, Model model, HttpSession httpSession) {
+	public String login(
+			@ModelAttribute MemberVO memberVO,
+			Model model, HttpSession httpSession) {
 		
 		MemberVO re_memberVO = mService.login_id_check(memberVO);
 		if(re_memberVO == null) {
@@ -61,6 +68,13 @@ public class MemberContorller {
 	public String logout(Model model, HttpSession httpSession) {
 		
 		return "redirect:/";
+	}
+	
+	@RequestMapping(value="/logout", method=RequestMethod.GET)
+	public String logout(HttpSession httpSession, Model model) {
+		
+		httpSession.setAttribute("LOGIN", null);
+		return "home";
 	}
 	
 }
