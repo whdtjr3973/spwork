@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+	<!-- 성능관련 기능 -->
+		<setting name="cacheEnabled" value="true"/> <!-- 기본값 false -->
+		<setting name="defaultExecutorType" value="REUSE"/>
+		
+		<setting name="jdbcTypeForNull" value="VARCHAR"/>
+		<setting name="logPrefix" value="마이바티스 : "/>
+	</settings>
+</configuration>

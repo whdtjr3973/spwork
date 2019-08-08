@@ -27,4 +27,16 @@ public class AjaxController {
 		
 		return fileVOList;
 	}
+	
+	@ResponseBody
+	@RequestMapping(value="/file_delete")
+	public String file_delete(long file_seq) {
+		
+		
+		boolean okDelete = afService.file_delete(file_seq);
+		
+		if(okDelete) return "OK";
+		else return "FAIL";
+	
+	}
 }

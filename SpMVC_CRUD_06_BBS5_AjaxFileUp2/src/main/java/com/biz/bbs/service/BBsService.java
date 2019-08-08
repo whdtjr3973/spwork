@@ -46,7 +46,11 @@ public class BBsService {
 	}
 	
 	public int delete(long bbs_seq) {
-
+		// 첨부 파일 삭제
+//		int file_ret = afService.files_delete(bbs_seq);
+		
+		// 게시글을 삭제하면 두 테이블이 참조 무결성 관계이므로
+		// 첨부파일목록은 자동으로 삭제된다.
 		int ret = bDao.delete(bbs_seq);
 		
 		return ret;

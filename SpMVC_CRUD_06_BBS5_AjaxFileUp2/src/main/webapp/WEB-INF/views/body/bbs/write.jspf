@@ -10,7 +10,7 @@ $(function(){
 		if(confirm("이미지를 삭제할까요?")){
 
 			$.ajax({
-				url : '${rootPath}/bbs/file_delete?file_seq=' + file_seq,
+				url : '${rootPath}/ajax_file/file_delete?file_seq=' + file_seq,
 				method : 'GET'
 				
 			})
@@ -44,6 +44,17 @@ $(function(){
 		let formData = new FormData()
 		// 업로드할 첫번째 파일 1개를 formData 객체에 추가한다.
 		for(let i = 0 ; i < files.length; i++){
+			
+			let file_name = files[i].name
+			if(/(\.gif|\.jpg|\.jpeg|\.png)$/i.test(file_name) == false){
+				alert("업로드는 *.gif, *.jpg, *.jpeg, *.png 파일만 가능합니다.")
+				
+				$(".drag_box h3").css("color","red")
+				$(".drag_box h3").css("font-size","20px")
+				$(".drag_box h3").text("파일 업로드 실패!!!")
+				return false
+			}
+				
 			formData.append("files", files[i])	
 		}
 		
@@ -81,6 +92,8 @@ $(function(){
 					})		
 				)
 			}
+			$(".drag_box h3").css("color","blue")
+			$(".drag_box h3").css("font-size","20px")
 			$(".drag_box h3").text("파일 업로드 성공!")
 		})
 		return false
@@ -98,6 +111,13 @@ div.drag_box {
 	text-align: center;
 	border-radius: 5px;
 	margin: 0 auto;
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+div.drag_box h3{
+	display: inline-block;
 }
 div.drag_box:hover{
 	background-color: #ccc;
@@ -119,6 +139,28 @@ img.image{
 	color: red;
 }
 </style>
+
+<!-- 파일 업로드를 위해서
+	commons-fileUpload와 commons-io를 pom.xml에 등록하고
+	form에 enctype을 multipart/form-data로 지정을 하면
+	파일 업로드가 가능하다
+	
+	이때 파일을 선택하고 저장버튼을 누르면
+	보통 400 오류가 발생한다.
+	이 상황은 CommonsMultipartResolver를
+	
+	*-context.xml에 설정을 하지 않아서 발생하는 문제
+	
+	이 상황에서 파일을 선택하지않고 저장버튼을 누르면
+	오류는 발생하지 않지만, 모든 값이 사라져서 DB에 null값이 저장된다.
+	
+	이때는 내부에 오류가 밖으로 노출되지 않는 상황일 뿐 정상적인 상황이 아니다.
+	
+	이런 경우에는 enctype을 삭제하거나 
+	CommonsMultipartResolver를 설정해 주어야 정상적인 내용저장이 가능하다.
+ -->
+
+
 <fieldset>
 	<form:form modelAttribute="bbsReqDto" method="POST" enctype="multipart/form-data">
 	
